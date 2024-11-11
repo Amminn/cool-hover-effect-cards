@@ -8,10 +8,10 @@ const handleOnMouseMove = e => {
     x = e.clientX - rect.left,
     y = e.clientY - rect.top
 
-  target.style.
+  target.style.setProperty("--mouse-x", `${x}px`);
+  target.syle.setProperty("--mouse-y", `${y}px`);
 }
 
 for (const card of document.querySelectorAll(".card")) {
-  card.onmouseover = e => handleOnMouseMove(e);
-
+  card.onmousemove = e => handleOnMouseMove(e);
 }

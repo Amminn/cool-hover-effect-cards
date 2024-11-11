@@ -6,6 +6,8 @@
 
 :root {
   --bg-color: rgb(20, 20, 20);
+  --mouse-x: 0px;
+  --mouse-y: 0px;
 }
 
 body {
@@ -52,7 +54,7 @@ body {
   left: 0px;
   /* transform: translate(-50%, -50%); */
   background: radial-gradient(
-    800px circle at 100px 100px,
+    800px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
