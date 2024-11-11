@@ -1,21 +1,20 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-}
+} */
 
 :root {
   --bg-color: rgb(20, 20, 20);
+  --card-color: rgb(23, 23, 23);
   --mouse-x: 0px;
   --mouse-y: 0px;
 }
 
 body {
   background-color: var(--bg-color);
-  height: 100%;
-  min-width: 100vh;
+  height: 100vh;
   margin: 0px;
-  /* overflow: hidden; */
   padding: 0px;
   display: flex;
   align-items: center;
@@ -25,7 +24,8 @@ body {
 #cards {
   display: flex;
   flex-wrap: wrap;
-  max-width: 916px;
+  justify-content: center;
+  max-width: 1200px;
   gap: 8px;
   width: calc(100% - 20px);
   margin-top: 10px;
@@ -35,8 +35,9 @@ body {
   position: relative;
   height: 260px;
   width: 300px;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* background-color: var(--card-color); */
+  background: rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -45,20 +46,49 @@ body {
   color: white;
 }
 
-.card::before {
+.card:hover::before,
+.card:hover > .card-border {
+  opacity: 1;
+}
+
+.card::before,
+.card > .card-border {
   content: "";
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
-  /* transform: translate(-50%, -50%); */
-  background: radial-gradient(
+  transition: opacity 0.5s;
+  border-radius: inherit;
+  z-index: 2;
+  opacity: 0;
+}
+
+.card::before {
+  /* background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
-  );
-  border-radius: inherit;
-  z-index: 2;
+  ); */
+  z-index: 3;
 }
 
+.card > .card-border {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.719),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content {
+  background: var(--bg-color);
+  border-radius: inherit;
+  margin: 1px;
+  position: relative;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  z-index: 2;
+}
