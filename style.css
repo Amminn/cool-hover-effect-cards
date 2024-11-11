@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --bg-color: rgb(20, 20, 20);
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100%;
+  min-width: 100vh;
+  margin: 0px;
+  /* overflow: hidden; */
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 916px;
+  gap: 8px;
+  width: calc(100% - 20px);
+  margin-top: 10px;
+}
+
+.card {
+  position: relative;
+  height: 260px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.card::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* transform: translate(-50%, -50%); */
+  background: radial-gradient(
+    800px circle at 100px 100px,
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  border-radius: inherit;
+  z-index: 2;
+}
+
