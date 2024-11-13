@@ -10,7 +10,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: var(--body-bg);
   width: 100%;
   display: flex;
@@ -27,6 +27,7 @@ body {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
+  padding-block:40px;
 }
 
 .card {
@@ -36,7 +37,6 @@ body {
   height: 280px;
   background-color: var(--card-bg);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -51,21 +51,47 @@ body {
     rgba(255, 255, 255, 0.11) 0%,
     transparent 40%
   );
-  /* transform: translate(-50%, -50%); */
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  padding: 10px;
+  transition: 0.3s ease;
+  z-index: 3;
+  opacity: 0;
 }
 
-.card::after {
-  content: "";
+.card:hover::before {
+  opacity: 1;
+}
+
+.card > .content {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin: 1px;
+  border-radius: inherit;
+  /* background: rgba(173, 216, 230, 0.233); */
+  background: var(--card-bg);
+  z-index: 2;
+}
+
+.card > .border {
   position: absolute;
   top: 0px;
   left: 0px;
-  /* background: rgba(177, 37, 37, 0.589); */
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  /* margin: 2px; */
+  background: radial-gradient(
+    400px circle at var(--x) var(--y),
+    rgba(255, 255, 255, 0.664),
+    transparent 40%
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+#cards:hover > .card > .border {
+  opacity: 1;
 }
