@@ -38,7 +38,7 @@ body {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .card::before {
@@ -47,17 +47,25 @@ body {
   top: 0px;
   left: 0px;
   background: radial-gradient(
-    300px circle at 0px 0px,
-    white 0%, black 100%
+    800px circle at var(--x) var(--y),
+    rgba(255, 255, 255, 0.11) 0%,
+    transparent 40%
   );
   /* transform: translate(-50%, -50%); */
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  padding: 10px;
 }
 
-/* background: radial-gradient(
-  800px circle at var(--mouse-x) var(--mouse-y),
-  rgba(255, 255, 255, 0.06),
-  transparent 40%
-); */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* background: rgba(177, 37, 37, 0.589); */
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  /* margin: 2px; */
+}
