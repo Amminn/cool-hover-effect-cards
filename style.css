@@ -1,8 +1,8 @@
-/* * {
+*{
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-} */
+}
 
 :root {
   --bg-color: rgb(20, 20, 20);
@@ -39,9 +39,7 @@ body {
   position: relative;
   height: 260px;
   width: 300px;
-  /* background-color: var(--card-color); */
   background: rgba(255, 255, 255, 0.1);
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 10px;
   cursor: pointer;
   display: flex;
